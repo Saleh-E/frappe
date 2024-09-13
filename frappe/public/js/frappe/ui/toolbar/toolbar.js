@@ -72,22 +72,9 @@ frappe.ui.toolbar.Toolbar = class {
 	}
 
 	setup_help() {
-		if (!frappe.boot.desk_settings.notifications) {
-			// hide the help section
-			$(".navbar .vertical-bar").removeClass("d-sm-block");
-			$(".dropdown-help").removeClass("d-lg-block");
-			return;
-		}
-		frappe.provide("frappe.help");
-		frappe.help.show_results = show_results;
-
-		this.search = new frappe.search.SearchDialog();
-		frappe.provide("frappe.searchdialog");
-		frappe.searchdialog.search = this.search;
-
-		$(".dropdown-help .dropdown-toggle").on("click", function () {
-			$(".dropdown-help input").focus();
-		});
+		// Override to prevent Help menu from being created
+		$(".navbar .vertical-bar").removeClass("d-sm-block");
+		$(".dropdown-help").removeClass("d-lg-block");
 
 		$(".dropdown-help .dropdown-menu").on("click", "input, button", function (e) {
 			e.stopPropagation();

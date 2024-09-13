@@ -57,6 +57,7 @@ frappe.ui.form.on("Event", {
 				])
 			);
 		}
+
 	},
 	repeat_on: function (frm) {
 		if (frm.doc.repeat_on === "Every Day") {
@@ -115,3 +116,4 @@ frappe.desk.eventParticipants = class eventParticipants {
 		});
 	}
 };
+

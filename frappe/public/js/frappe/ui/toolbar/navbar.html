@@ -118,7 +118,7 @@
 						</button>
 						<div class="dropdown-menu dropdown-menu-right" id="toolbar-user" role="menu">
 							{% for item in navbar_settings.settings_dropdown %}
-								{% if (!item.hidden) { %}
+							    {% if (!item.hidden && item.item_label !== "Apps") { %}  <!-- Add this condition -->
 									{% if (item.route) { %}
 										<a class="dropdown-item" href="{{ item.route }}">
 											{%= __(item.item_label) %}
